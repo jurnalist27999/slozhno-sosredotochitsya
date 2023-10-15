@@ -3,10 +3,69 @@
   Здесь окажутся стили, которые нужно переопределить принудительно,
   переключая тему
 */
+ :root.theme-light {
+  --large-main-color: #ffc2e6; 
+  --accent-color: #ff8dc8;
+  --paragraph-color: #353430;
+  --primary-font: IBM Plex Mono;
+  --large-font-size: 116px;
+  --small-font-size: 18px;
+  --main-blok-padding: 10px;
+  --page-blok: 0 10px;
+  background-color: url(../images/cover-image-light.png);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --large-main-color: #ffc2e6; 
+      --accent-color: #ff8dc8;
+      --paragraph-color: #353430;
+      --primary-font: IBM Plex Mono;
+      --large-font-size: 116px;
+      --small-font-size: 18px;
+      --main-blok-padding: 10px;
+      --page-blok: 0 10px;
+    }
+  }
 
 .page.theme_light {
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+ 
 }
+
+.page.theme_light .small__element {
+  display: none;
+}
+.page {
+  background-color: url(../images/cover-image-light.png);
+}
+
+
+
+/*.small__element {  не верный метод - просто поменять переменные или скрыть элемент. скрывается и меняет в темной теме тоже). 
+  visibility: hidden;
+}
+
+.small__element::after {
+  visibility: hidden;
+  
+}
+
+.decorated-zone::before {
+  border-block-start: 1px solid var(--paragraph-color);
+  border-inline-end: 1px solid var(--paragraph-color);
+
+}
+
+.decorated-zone::after {
+  border-block-end: 1px solid var(--paragraph-color);
+  border-inline-start: 1px solid var(--paragraph-color);
+} 
+
+.header__theme-menu-button {
+  color: var(--paragraph-color);
+  font-size: var(--paragraph-color);
+} */

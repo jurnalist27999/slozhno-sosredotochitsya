@@ -2,4 +2,683 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-image: url(../images/cover-image-dark.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+.header {
+  inline-size: 100%;
+  min-block-size: 648px; 
+  display: grid;
+  font-family: var(--primary-font);
+  padding: var(--main-blok-padding);
+}
+
+.decorated-zone::before {
+  content: '';
+  position: absolute;
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+  inset-inline-start: 340px;
+  block-size: 24px;
+  inline-size: 25px;
+
+}
+
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
+  block-size: 25px;
+  inline-size: 25px;
+  inset-block-start: 633px;
+} 
+
+.heading {
+  color: var(--large-main-color);
+  font-size: var(--large-font-size);
+  text-shadow: 4px 4px 0 var(--accent-color);
+  line-height: 82.5%;
+  font-weight: 700;
+  align-self: center;
+  margin-block-start: 4%; 
+}
+
+.subtitle {
+
+  font-size: var(--small-font-size);
+  font-weight: 700;
+  line-height: 23.4px;
+  align-self: center;
+  margin-block-end: 6%;
+}
+
+.title-decor {
+  color: var(--subtitle-color);
+  background-color: var(--accent-color);
+}
+
+.small__element {
+  position: absolute;
+  color: var(--accent-color);
+  font-family: var(--primary-font);
+  font-size: var(--small-font-size);
+  font-weight: 400;
+  line-height: 25px; 
+  inset-inline-start: 304px;
+}
+
+.small__element::after {
+  content: '';
+  position: absolute;
+  margin-block-start: 8px;
+  margin-inline-start: 10px;
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 100%;
+  background-color: var(--accent-color);
+  filter: drop-shadow(0px 0px 4px var(--accent-color));
+}
+
+.header__theme-menu {
+  display: grid;
+
+}
+
+.header__theme-menu-list {
+  
+  justify-self: end;
+  align-self: end;
+  display: grid;
+  gap: 10px;
+  margin-block-end: 2vh; 
+  
+}
+
+.header__theme-menu-item {
+  inline-size: 60px;
+  block-size: 26px;
+}
+
+.header__theme-menu-button {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-size: var(--small-font-size);
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button:hover { 
+  border: 1px solid rgba(255, 0, 112, 0.40);
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  outline: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button:focus {
+  border-inline-end: none;
+  border-inline-start: none;
+  border-block-start: none;
+  padding: 0 13px;
+  height: 26px;
+  border-block-end: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  padding: 0 13px;
+  height: 26px;
+  border: 1px solid var(--accent-color);
+}
+
+.page-block {
+  padding: var(--page-blok);
+  display: grid;
+  gap: 20px;
+  line-height: 23.4px;
+  margin-block-start: 40px;
+}
+
+.section-title {
+  color: var(--accent-color);
+  font-size: var(--small-font-size);
+  font-family: var(--primary-font);
+  font-weight: 700;
+  line-height: 23.4px;
+}
+
+.note-text {
+  font-size: var(--small-font-size);
+  font-family: var(--primary-font);
+}
+
+.main-text {
+  color: var(--paragraph-color);
+  margin-block-start: 10px;
+  font-family: var(--primary-font);
+  font-size: var(--small-font-size);
+  font-weight: 400;
+  line-height: 23.4px;
+}
+
+a {
+  text-shadow: 2px 2px 0 var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  inline-size: 97px;
+  block-size: 22px;
+  outline: 1px solid #F1B2CE;
+}
+
+.main__page-block {
+  padding: var(--page-blok);
+  margin-block-start: 50px;
+  display: grid;
+  gap: 20px;
+
+}
+
+.information__page-block {
+  padding: var(--page-blok);
+  margin-block-start: 50px;
+  display: grid;
+  gap: 20px;
+}
+
+.note-text-text {
+  font-size: 18px;
+  font-weight: 400px;
+  line-height: 23.4px;
+}
+
+.page__block-content {
+  margin-block-start: 50px;
+  padding: var(--page-blok);
+  display: grid;
+  gap: 10px;
+}
+
+.visual-sunset {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+  color: lightgray 50%;
+  background-image: no-repeat;
+}
+
+.visual-food {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+  color: lightgray 50%;
+  background-image: no-repeat;
+}
+
+.visual-music {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+  color: lightgray 50%;
+  background-image: no-repeat;
+}
+
+.visual-reading {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+  color: lightgray 50%;
+  background-image: no-repeat;
+}
+
+.visual-city {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+  color: lightgray 50%;
+  background-image: no-repeat;
+}
+
+.footer {
+  padding: var(--main-blok-padding);
+  inline-size: 100%;
+  min-block-size: 667px;
+  display: flex;
+  margin-block-start: 40px;
+}
+
+.title-end {
+  font-size: var(--large-font-size);
+  font-family: var(--primary-font);
+  color: var(--large-main-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+  font-weight: 700;
+  line-height: 82.5%;
+  align-self: center;
+}
+
+.decorated-zone-end::before {
+  content: '';
+  position: absolute;
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+  inset-inline-start: 340px;
+  block-size: 24px;
+  inline-size: 25px;
+}
+
+.decorated-zone-end::after { 
+  content: '';
+  position: absolute;
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
+  block-size: 25px;
+  inline-size: 25px;
+}
+
+
+ @media (max-width >= 768px) {
+
+  .header{
+    max-inline-size: 100dvw;
+    min-block-size: 1024px;
+    padding: 20px;
+  }
+
+  .heading{
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    justify-self: start;
+    margin-inline-start: -3%;
+  }
+
+  .subtitle{
+    width: 50%;
+    justify-self: end;
+    margin-block-end: 11%;
+  } 
+
+  .decorated-zone::before {
+    inset-inline-start: 723px;
+  
+  }
+  
+  .decorated-zone::after {
+    inset-block-start: 979px;
+  } 
+
+  .small__element {
+    inset-inline-start: 687px;
+  }
+
+  .header__theme-menu-list {
+    gap: 13px;
+    justify-self: end;
+    align-self: end;
+    margin-block-end: 7vh;
+  }
+
+  .page-block {
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    --page-blok: 0 20px;
+    padding: var(--page-blok);
+    margin-block-start: 40px;
+  }
+
+  .note-text {
+    margin-block-start: 20px;
+  }
+
+  .section-title {
+    margin-block-start: 20px;
+  }
+
+  .main__page-block {
+    --page-blok: 0 20px;
+    padding: var(--page-blok);
+    margin-block-start: 60px;
+    gap: 0px;
+  }
+
+  .section-title {
+    max-inline-size: 236px;
+  }
+
+  .information__page-block {
+    --page-blok: 0 20px;
+    padding: var(--page-blok);
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    margin-block-start: 60px;
+  }
+
+  .page__block-content {
+    --page-blok: 0 20px;
+    padding: var(--page-blok);
+    margin-block-start: 55px;
+  }
+
+  .max-text {
+    max-inline-size: 728px;
+  }
+
+  .note-text-text {
+    margin-block-start: 20px;
+  }
+
+  .additional_indentation {
+    max-block-size: 23px;
+    display: block;
+  }
+
+  .additional_indentation br {
+      display: none;
+  }
+
+  .grid-images {
+    margin-block-start: 20px;
+    display: grid;
+    gap: 20px; 
+    grid-template-areas:
+    'sunset sunset food'
+    'music reading food'
+    'music city city'; 
+    
+    
+  }
+
+  .visual-sunset-picture {
+    grid-area: sunset;
+  
+  }
+
+  .visual-sunset {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .visual-music-picture {
+    grid-area: music;
+  
+  }
+
+  .visual-music {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    }
+
+  .visual-food-picture {
+      grid-area: food;
+    }
+
+  .visual-food {
+    object-fit: cover;
+      width: 100%;
+      height: 100%;
+  }
+
+  .visual-reading-picture {
+    grid-area: reading;
+  
+  }
+
+  .visual-reading {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .visual-city-picture {
+    grid-area: city;
+
+  }
+
+  .visual-city {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer {
+    max-inline-size: 728px; 
+    min-block-size: 1024px;
+    --main-blok-padding: 20px; 
+    padding: var(--main-blok-padding);
+  }
+  
+  .title-end {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  } 
+
+  .decorated-zone-end::before {
+  inset-inline-start: 720px;
+ 
+  }
+  
+  .decorated-zone-end::after { 
+    inset-block-end: 12px;
+  }
+  
+
+@media (max-width >= 1024px) {
+
+  .header {
+    max-inline-size: 100dvw;
+    min-block-size: 768px;
+    --main-blok-padding: 20px;
+  }
+
+  .heading {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    margin-inline-start: -2%;
+    margin-block-start: 70px;
+  }
+
+  .subtitle {
+    width: 50%;
+    justify-self: end;
+    margin-block-end: 4%;
+  }
+
+   .decorated-zone::before {
+    inset-inline-start: 979px;
+  
+  }
+  
+  .decorated-zone::after {
+    inset-block-start: 723px;
+  } 
+
+  .small__element {
+    inset-inline-start: 943px;
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    align-self: start;
+    justify-self: center;
+    gap: 20px;
+  } 
+
+  .page-block {
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    --page-blok: 0 20px;
+    padding: var(--page-blok);
+    margin-block-start: 40px;
+  }
+
+  .note-text {
+    margin-block-start: 20px;
+  }
+
+  .section-title {
+    margin-block-start: 20px;
+  }
+
+  .main__page-block {
+    --page-blok: 0 20px;
+    padding: var(--page-blok);
+    margin-block-start: 60px;
+    gap: 0px;
+  }
+
+  .section-title {
+    max-inline-size: 236px;
+  }
+
+  .information__page-block {
+    --page-blok: 0 20px;
+    padding: var(--page-blok);
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    margin-block-start: 60px;
+  }
+
+  .page__block-content {
+    --page-blok: 0 20px;
+    padding: var(--page-blok);
+    margin-block-start: 55px;
+  }
+
+  .max-text {
+    max-inline-size: 728px;
+  }
+
+  .note-text-text {
+    margin-block-start: 20px;
+  }
+
+  .additional_indentation {
+    max-block-size: 23px;
+    display: block;
+  }
+
+  .additional_indentation br {
+      display: none;
+  }
+
+  .grid-images {
+    margin-block-start: 20px;
+    display: grid;
+    gap: 20px; 
+    grid-template-areas:
+    'sunset sunset food'
+    'music reading food'
+    'music city city'; 
+    
+    
+  }
+
+  .visual-sunset-picture {
+    grid-area: sunset;
+  
+  }
+
+  .visual-sunset {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .visual-music-picture {
+    grid-area: music;
+  
+  }
+
+  .visual-music {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    }
+
+  .visual-food-picture {
+      grid-area: food;
+    }
+
+  .visual-food {
+    object-fit: cover;
+      width: 100%;
+      height: 100%;
+  }
+
+  .visual-reading-picture {
+    grid-area: reading;
+  
+  }
+
+  .visual-reading {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .visual-city-picture {
+    grid-area: city;
+
+  }
+
+  .visual-city {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer {
+    max-inline-size: 1024px; 
+    min-block-size: 768px;
+    --main-blok-padding: 20px; 
+    padding: var(--main-blok-padding);
+  }
+  
+  .title-end {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+
+  .decorated-zone-end::before {
+  inset-inline-start: 980px;
+ 
+  }
+  
+  .decorated-zone-end::after { 
+    inset-block-end: 12px;
+  }
+
+}
+
+
