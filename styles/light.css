@@ -3,69 +3,129 @@
   Здесь окажутся стили, которые нужно переопределить принудительно,
   переключая тему
 */
- :root.theme-light {
-  --large-main-color: #ffc2e6; 
-  --accent-color: #ff8dc8;
-  --paragraph-color: #353430;
-  --primary-font: IBM Plex Mono;
-  --large-font-size: 116px;
-  --small-font-size: 18px;
-  --main-blok-padding: 10px;
-  --page-blok: 0 10px;
-  background-color: url(../images/cover-image-light.png);
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      --large-main-color: #ffc2e6; 
-      --accent-color: #ff8dc8;
-      --paragraph-color: #353430;
-      --primary-font: IBM Plex Mono;
-      --large-font-size: 116px;
-      --small-font-size: 18px;
-      --main-blok-padding: 10px;
-      --page-blok: 0 10px;
-    }
-  }
-
-.page.theme_light {
+ .page.theme-light {
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
- 
-}
-
-.page.theme_light .small__element {
-  display: none;
-}
-.page {
-  background-color: url(../images/cover-image-light.png);
-}
-
-
-
-/*.small__element {  не верный метод - просто поменять переменные или скрыть элемент. скрывается и меняет в темной теме тоже). 
-  visibility: hidden;
-}
-
-.small__element::after {
-  visibility: hidden;
+  --large-main-color: #ffc2e6; 
+  --accent-color:#ff8dc8;
+  --shadow-color: #ff0070;
+  --subtitle-color: #353430;
+  --primary-font: 'IBM Plex Mono', Monospace; 
+  --large-font-size: 116px;
+  --small-font-size: 18px;
+  --main-blok-padding: 10px;
+  --page-blok: 0 10px;
+  --button-hover: rgba(50, 49, 45, 0.40);
+  background: url(../images/cover-image-light.png);
+  }
   
+  @media (prefers-color-scheme: light) {
+    :root {
+      --large-main-color: #ffc2e6; 
+      --accent-color: #ff8dc8;
+      --shadow-color: #ff0070;
+      --subtitle-color: #353430;
+      --primary-font: 'IBM Plex Mono', Monospace; 
+      --large-font-size: 116px;
+      --small-font-size: 18px;
+      --main-blok-padding: 10px;
+      --page-blok: 0 10px;
+      --button-hover: rgba(50, 49, 45, 0.40);
+      background: url(../images/cover-image-light.png);
+    }
+
+    .small__element {
+      display: none;
+    }
+
+    .page {
+      background: url(../images/cover-image-light.png);
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed; 
+    }
+    
+    .decorated-zone::before {
+      border-block-start: 1px solid var(--subtitle-color);
+      border-inline-end: 1px solid var(--subtitle-color);
+    }
+
+    .decorated-zone::after {
+      border-block-end: 1px solid var(--subtitle-color);
+      border-inline-start: 1px solid var(--subtitle-color);
+    } 
+
+    .title-decor {
+      color: var(--subtitle-color);
+    }
+      
+    .header__theme-menu-button {
+      color: var(--subtitle-color);
+    }
+      
+    .header__theme-menu-button:hover { 
+      outline: 1px solid var(--button-hover);
+    }
+      
+    .header__theme-menu-button_active {
+      outline: 1px solid var(--subtitle-color);
+    }
+      
+    .header__theme-menu-button:focus {
+      border-block-end: 1px solid var(--subtitle-color);
+    }
+
+    .header__theme-menu-button:focus-visible {
+      border: 1px solid var(--subtitle-color);
+    }
+
+    .section-title {
+      color: var(--subtitle-color);
+    }
+
+    .main-text {
+       color: var(--subtitle-color);
+    }
+
+    a:hover {
+      border-bottom: 1px solid var(--subtitle-color);
+    }
+    
+    a:focus-visible {
+      outline: 1px solid var(--subtitle-color);
+    }
+
+    .decorated-zone-end::before {     
+      border-block-start: 1px solid var(--subtitle-color);
+      border-inline-end: 1px solid var(--subtitle-color);      
+    }
+      
+    .decorated-zone-end::after { 
+      border-block-end: 1px solid var(--subtitle-color);
+      border-inline-start: 1px solid var(--subtitle-color);
+    }
+
+    @media (width >= 1024px) {
+      .heading {
+        text-shadow: 4px 4px 0 var(--shadow-color);
+      }
+        
+      .title-end {
+        text-shadow: 2px 2px 0 var(--shadow-color);
+      }
+  }
 }
 
-.decorated-zone::before {
-  border-block-start: 1px solid var(--paragraph-color);
-  border-inline-end: 1px solid var(--paragraph-color);
 
-}
 
-.decorated-zone::after {
-  border-block-end: 1px solid var(--paragraph-color);
-  border-inline-start: 1px solid var(--paragraph-color);
-} 
+    
 
-.header__theme-menu-button {
-  color: var(--paragraph-color);
-  font-size: var(--paragraph-color);
-} */
+  
+
+
+
+
+
+

@@ -2,18 +2,19 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background-image: url(../images/cover-image-dark.png);
-  background-position: 50% 50%;
+  background: url(../images/cover-image-dark.png);
+  background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .header {
   inline-size: 100%;
-  min-block-size: 648px; 
+  min-block-size: 100vh; 
   display: grid;
   font-family: var(--primary-font);
   padding: var(--main-blok-padding);
+  position: relative; 
 }
 
 .decorated-zone::before {
@@ -21,10 +22,10 @@
   position: absolute;
   border-block-start: 1px solid var(--accent-color);
   border-inline-end: 1px solid var(--accent-color);
-  inset-inline-start: 340px;
-  block-size: 24px;
+  inset-inline-start: 91%; 
+  inset-block-start: 1.5%;
+  block-size: 25px;
   inline-size: 25px;
-
 }
 
 .decorated-zone::after {
@@ -34,41 +35,20 @@
   border-inline-start: 1px solid var(--accent-color);
   block-size: 25px;
   inline-size: 25px;
-  inset-block-start: 633px;
+  inset-block-start: 94.8%;
+  inset-inline-start: 3%;
 } 
-
-.heading {
-  color: var(--large-main-color);
-  font-size: var(--large-font-size);
-  text-shadow: 4px 4px 0 var(--accent-color);
-  line-height: 82.5%;
-  font-weight: 700;
-  align-self: center;
-  margin-block-start: 4%; 
-}
-
-.subtitle {
-
-  font-size: var(--small-font-size);
-  font-weight: 700;
-  line-height: 23.4px;
-  align-self: center;
-  margin-block-end: 6%;
-}
-
-.title-decor {
-  color: var(--subtitle-color);
-  background-color: var(--accent-color);
-}
 
 .small__element {
   position: absolute;
   color: var(--accent-color);
   font-family: var(--primary-font);
   font-size: var(--small-font-size);
+  text-transform: uppercase;
   font-weight: 400;
   line-height: 25px; 
-  inset-inline-start: 304px;
+  inset-inline-start: 81%;
+  inset-block-start: 1.5%;
 }
 
 .small__element::after {
@@ -85,37 +65,39 @@
 
 .header__theme-menu {
   display: grid;
-
 }
 
 .header__theme-menu-list {
-  
+  margin-block-start: 9px;
   justify-self: end;
   align-self: end;
   display: grid;
   gap: 10px;
-  margin-block-end: 2vh; 
-  
+  margin-block-end: 40px;
 }
 
 .header__theme-menu-item {
-  inline-size: 60px;
+  inline-size: 70px;
   block-size: 26px;
 }
 
 .header__theme-menu-button {
-  background: none;
+  background: transparent;
   border: none;
-  color: var(--accent-color);
-  font-size: var(--small-font-size);
   font-weight: 400;
   line-height: 18px;
   text-align: center;
   text-transform: lowercase;
+  color: var(--accent-color);
+  font-size: var(--small-font-size);
+  inline-size: 68px;
+  block-size: 24px;
+  transition-property: all;
+  transition-duration: 0.5s;
 }
 
 .header__theme-menu-button:hover { 
-  border: 1px solid rgba(255, 0, 112, 0.40);
+  outline: 1px solid var(--button-hover);
 }
 
 .header__theme-menu-button_active {
@@ -124,25 +106,42 @@
 }
 
 .header__theme-menu-button:focus {
-  border-inline-end: none;
-  border-inline-start: none;
-  border-block-start: none;
-  padding: 0 13px;
-  height: 26px;
+  border: none;
   border-block-end: 1px solid var(--accent-color);
 }
 
 .header__theme-menu-button:focus-visible {
   outline: none;
-  padding: 0 13px;
-  height: 26px;
+  padding: 0 12px;
+  height: 25px;
   border: 1px solid var(--accent-color);
+} 
+
+.heading {
+  color: var(--large-main-color);
+  font-size: var(--large-font-size);
+  text-shadow: 4px 4px 0 var(--accent-color);
+  line-height: 82.5%;
+  font-weight: 700;
+  align-self: center;
+}
+
+.subtitle {
+  font-size: var(--small-font-size);
+  font-weight: 700;
+  line-height: 23.4px;
+  max-block-size: 117px;
+  margin-block-start: 26px;
+}
+
+.title-decor {
+  color: var(--subtitle-color);
+  background-color: var(--accent-color);
 }
 
 .page-block {
   padding: var(--page-blok);
   display: grid;
-  gap: 20px;
   line-height: 23.4px;
   margin-block-start: 40px;
 }
@@ -158,6 +157,7 @@
 .note-text {
   font-size: var(--small-font-size);
   font-family: var(--primary-font);
+  margin-block-start: 20px;
 }
 
 .main-text {
@@ -171,98 +171,62 @@
 
 a {
   text-shadow: 2px 2px 0 var(--accent-color);
-  text-decoration: none;
+  text-decoration-line: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  border-bottom: 1px solid var(--paragraph-color);
 }
 
 a:focus-visible {
-  inline-size: 97px;
-  block-size: 22px;
-  outline: 1px solid #F1B2CE;
+  outline: 1px solid var(--paragraph-color);
 }
 
 .main__page-block {
   padding: var(--page-blok);
   margin-block-start: 50px;
   display: grid;
-  gap: 20px;
-
 }
 
 .information__page-block {
   padding: var(--page-blok);
   margin-block-start: 50px;
   display: grid;
-  gap: 20px;
 }
 
 .note-text-text {
   font-size: 18px;
-  font-weight: 400px;
+  font-weight: 400;
   line-height: 23.4px;
+  font-family: var(--primary-font);
+  margin-block-start: 20px;
 }
 
 .page__block-content {
-  margin-block-start: 50px;
+  margin-block-start: 30px;
   padding: var(--page-blok);
   display: grid;
   gap: 10px;
 }
 
-.visual-sunset {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-  display: block;
-  color: lightgray 50%;
-  background-image: no-repeat;
+.grid-images {
+  display: grid;
+  gap: 10px;
 }
 
-.visual-food {
+.picture-style {
   inline-size: 100%;
-  block-size: 100%;
   object-fit: cover;
   display: block;
-  color: lightgray 50%;
-  background-image: no-repeat;
-}
-
-.visual-music {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-  display: block;
-  color: lightgray 50%;
-  background-image: no-repeat;
-}
-
-.visual-reading {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-  display: block;
-  color: lightgray 50%;
-  background-image: no-repeat;
-}
-
-.visual-city {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-  display: block;
-  color: lightgray 50%;
-  background-image: no-repeat;
 }
 
 .footer {
   padding: var(--main-blok-padding);
   inline-size: 100%;
-  min-block-size: 667px;
+  min-block-size: 100vh; 
   display: flex;
-  margin-block-start: 40px;
+  margin-block-start: 44px;
+  position: relative;
 }
 
 .title-end {
@@ -280,8 +244,8 @@ a:focus-visible {
   position: absolute;
   border-block-start: 1px solid var(--accent-color);
   border-inline-end: 1px solid var(--accent-color);
-  inset-inline-start: 340px;
-  block-size: 24px;
+  inset-inline-start: 91%;
+  block-size: 25px;
   inline-size: 25px;
 }
 
@@ -290,57 +254,60 @@ a:focus-visible {
   position: absolute;
   border-block-end: 1px solid var(--accent-color);
   border-inline-start: 1px solid var(--accent-color);
+  inset-block-start: 94.8%;
   block-size: 25px;
   inline-size: 25px;
 }
 
-
- @media (max-width >= 768px) {
+@media (width >= 768px) {
 
   .header{
+    grid-template-rows: repeat(3, 1fr);
     max-inline-size: 100dvw;
-    min-block-size: 1024px;
+    min-block-size: 100vh; 
     padding: 20px;
   }
 
   .heading{
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     justify-self: start;
+    align-self: center;
     margin-inline-start: -3%;
   }
 
   .subtitle{
     width: 50%;
     justify-self: end;
-    margin-block-end: 11%;
+    margin-block-start: 7%;
   } 
 
   .decorated-zone::before {
-    inset-inline-start: 723px;
-  
+  inset-block-start: 2.1%;
+  inset-inline-start: 94%;
   }
   
   .decorated-zone::after {
-    inset-block-start: 979px;
+  inset-block-start: 95.5%;
+  inset-inline-start: 2.5%;
   } 
 
   .small__element {
-    inset-inline-start: 687px;
+    inset-inline-start: 89.5%;
+    inset-block-start: 2%;
   }
 
   .header__theme-menu-list {
-    gap: 13px;
-    justify-self: end;
-    align-self: end;
-    margin-block-end: 7vh;
+    margin-block-end: 8%;
   }
 
   .page-block {
-    display: grid;
-    grid-template-columns: 236px 1fr;
     --page-blok: 0 20px;
     padding: var(--page-blok);
-    margin-block-start: 40px;
+    grid-template-columns: 1fr 65%;
+  }
+
+  .page-block, .grid-text {
+    grid-column: 2;
   }
 
   .note-text {
@@ -349,6 +316,7 @@ a:focus-visible {
 
   .section-title {
     margin-block-start: 20px;
+    min-inline-size: 236px;
   }
 
   .main__page-block {
@@ -368,16 +336,13 @@ a:focus-visible {
     display: grid;
     grid-template-columns: 236px 1fr;
     margin-block-start: 60px;
+    column-gap: 20px;
   }
 
   .page__block-content {
     --page-blok: 0 20px;
     padding: var(--page-blok);
-    margin-block-start: 55px;
-  }
-
-  .max-text {
-    max-inline-size: 728px;
+    margin-block-start: 60px;
   }
 
   .note-text-text {
@@ -394,20 +359,17 @@ a:focus-visible {
   }
 
   .grid-images {
-    margin-block-start: 20px;
+    margin-block-start: 10px;
     display: grid;
     gap: 20px; 
     grid-template-areas:
     'sunset sunset food'
     'music reading food'
     'music city city'; 
-    
-    
   }
 
   .visual-sunset-picture {
     grid-area: sunset;
-  
   }
 
   .visual-sunset {
@@ -419,28 +381,26 @@ a:focus-visible {
 
   .visual-music-picture {
     grid-area: music;
-  
   }
 
   .visual-music {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    }
+  }
 
   .visual-food-picture {
-      grid-area: food;
-    }
+    grid-area: food;
+  }
 
   .visual-food {
     object-fit: cover;
-      width: 100%;
-      height: 100%;
+    width: 100%;
+    height: 100%;
   }
 
   .visual-reading-picture {
     grid-area: reading;
-  
   }
 
   .visual-reading {
@@ -451,97 +411,98 @@ a:focus-visible {
 
   .visual-city-picture {
     grid-area: city;
-
   }
 
-  .visual-city {
+ .visual-city {
     object-fit: cover;
     width: 100%;
     height: 100%;
   }
 
   .footer {
-    max-inline-size: 728px; 
-    min-block-size: 1024px;
+    margin-block-start: 62px; 
+    min-block-size: 100vh; 
     --main-blok-padding: 20px; 
     padding: var(--main-blok-padding);
+    display: grid;
   }
   
   .title-end {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    align-self: center;
     margin: auto;
   }
 
-  } 
-
   .decorated-zone-end::before {
-  inset-inline-start: 720px;
- 
+    inset-inline-start: 94%;
+    inset-block-start: 2%;
   }
-  
-  .decorated-zone-end::after { 
-    inset-block-end: 12px;
+
+  .decorated-zone-end::after {
+    margin-inline-start: 20px;
+    inset-block-start: 95.7%;
   }
+} 
+
   
 
-@media (max-width >= 1024px) {
+@media (width >= 1024px) {
 
   .header {
+    grid-template-rows: repeat(3, 1fr);
     max-inline-size: 100dvw;
-    min-block-size: 768px;
+    min-block-size: 100vh; 
     --main-blok-padding: 20px;
   }
 
   .heading {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     margin-inline-start: -2%;
-    margin-block-start: 70px;
+    align-self: center;
   }
 
   .subtitle {
     width: 50%;
-    justify-self: end;
-    margin-block-end: 4%;
+    max-height: 71px;
+    margin-block-start: 57px;
   }
 
-   .decorated-zone::before {
-    inset-inline-start: 979px;
-  
+  .decorated-zone::before {
+    inset-inline-start: 95.6%;
+    inset-block-start: 2.5%;
   }
   
   .decorated-zone::after {
-    inset-block-start: 723px;
+    inset-block-start: 94%;
+    inset-inline-start: 2%;
   } 
 
   .small__element {
-    inset-inline-start: 943px;
+    inset-block-start: 2.5%;
+    inset-inline-start: 92%;
   }
 
   .header__theme-menu-list {
     display: flex;
     align-self: start;
     justify-self: center;
-    gap: 20px;
+    margin-block-start:1px;
   } 
 
   .page-block {
-    display: grid;
-    grid-template-columns: 236px 1fr;
     --page-blok: 0 20px;
     padding: var(--page-blok);
     margin-block-start: 40px;
+    grid-template-columns: 1fr 66%;
   }
 
   .note-text {
-    margin-block-start: 20px;
+    margin-block-start: 21px;
   }
 
   .section-title {
     margin-block-start: 20px;
+    max-inline-size: 315px;
   }
 
   .main__page-block {
@@ -551,30 +512,26 @@ a:focus-visible {
     gap: 0px;
   }
 
-  .section-title {
-    max-inline-size: 236px;
-  }
-
   .information__page-block {
     --page-blok: 0 20px;
     padding: var(--page-blok);
     display: grid;
-    grid-template-columns: 236px 1fr;
-    margin-block-start: 60px;
+    grid-template-columns: 1fr 66%;
+    margin-block-start: 58px;
   }
 
   .page__block-content {
     --page-blok: 0 20px;
     padding: var(--page-blok);
-    margin-block-start: 55px;
-  }
-
-  .max-text {
-    max-inline-size: 728px;
+    margin-block-start: 60px;
   }
 
   .note-text-text {
     margin-block-start: 20px;
+  }
+
+  .margin-title {
+    margin-block-start: 0;
   }
 
   .additional_indentation {
@@ -586,16 +543,20 @@ a:focus-visible {
       display: none;
   }
 
+  .flex-title {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+  }
+
   .grid-images {
-    margin-block-start: 20px;
+    margin-block-start: 10px;
     display: grid;
     gap: 20px; 
     grid-template-areas:
     'sunset sunset food'
     'music reading food'
-    'music city city'; 
-    
-    
+    'music city city';  
   }
 
   .visual-sunset-picture {
@@ -612,28 +573,26 @@ a:focus-visible {
 
   .visual-music-picture {
     grid-area: music;
-  
   }
 
   .visual-music {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    }
+  }
 
   .visual-food-picture {
-      grid-area: food;
-    }
+    grid-area: food;
+  }
 
   .visual-food {
     object-fit: cover;
-      width: 100%;
-      height: 100%;
+    width: 100%;
+    height: 100%;
   }
 
   .visual-reading-picture {
     grid-area: reading;
-  
   }
 
   .visual-reading {
@@ -644,7 +603,6 @@ a:focus-visible {
 
   .visual-city-picture {
     grid-area: city;
-
   }
 
   .visual-city {
@@ -655,7 +613,7 @@ a:focus-visible {
 
   .footer {
     max-inline-size: 1024px; 
-    min-block-size: 768px;
+    min-block-size: 100vh; 
     --main-blok-padding: 20px; 
     padding: var(--main-blok-padding);
   }
@@ -669,16 +627,17 @@ a:focus-visible {
     margin: auto;
   }
 
+  .decorated-zone-end::after {
+    inset-block-start: 93.7%;
+  }
+}
+
+@media (max-width:1440px) and (min-width:1024px) {
 
   .decorated-zone-end::before {
-  inset-inline-start: 980px;
- 
+    inset-inline-start: calc(980px + (100vw - 1024px) * (980 - 1396) / (1024 -  1440));
   }
-  
-  .decorated-zone-end::after { 
-    inset-block-end: 12px;
-  }
-
 }
+    
 
 

@@ -6,10 +6,12 @@
   --large-main-color: #db00ff; 
   --subtitle-color: #000028;
   --paragraph-color: #f1b2ce;
-  --primary-font: IBM Plex Mono;
+  --primary-font: 'IBM Plex Mono', Monospace; 
   --large-font-size: 116px;
   --small-font-size: 18px;
   --accent-color: #ff0070;
   --main-blok-padding: 10px;
   --page-blok: 0 10px;
+  --button-hover: rgba(255, 0, 112, 0.40);
+  background: url(../images/cover-image-dark.png);
 }
