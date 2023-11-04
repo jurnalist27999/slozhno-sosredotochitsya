@@ -2,30 +2,41 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background: url(../images/cover-image-dark.png);
+  padding: clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem); /*отступы адаптировала от 10рх для 375 и до 20рх для 768*/
+  background-image: url(../images/cover-image-dark.png);
   background-position: center;
-  background-size: cover;
   background-attachment: fixed;
+  background-size: cover;
 }
 
 .header {
   inline-size: 100%;
   min-block-size: 100vh; 
   display: grid;
+  position: relative;
   font-family: var(--primary-font);
   padding: var(--main-blok-padding);
-  position: relative; 
+  /*padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
 }
+
 
 .decorated-zone::before {
   content: '';
   position: absolute;
   border-block-start: 1px solid var(--accent-color);
   border-inline-end: 1px solid var(--accent-color);
-  inset-inline-start: 91%; 
-  inset-block-start: 1.5%;
+  inset-inline-end: var(--decorated-indent);
+  inset-block-start: var(--decorated-indent);
   block-size: 25px;
   inline-size: 25px;
+/*top: 0;
+  right: 0;*/
+  /*top: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
+  right: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
+  /*top: 10px;
+  right: 10px;*/
+  /*inset-inline-start: 91%; 
+  inset-block-start: 1.5%;*/
 }
 
 .decorated-zone::after {
@@ -35,8 +46,16 @@
   border-inline-start: 1px solid var(--accent-color);
   block-size: 25px;
   inline-size: 25px;
-  inset-block-start: 94.8%;
-  inset-inline-start: 3%;
+  inset-inline-start: var(--decorated-indent);
+  inset-block-end: var(--decorated-indent);
+  /*left: 0;
+  bottom: 0px;*/
+  /*left: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
+  bottom: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
+  /*left: 10px;
+  bottom: 10px;*/
+  /*inset-block-start: 94.8%;
+  inset-inline-start: 3%;*/
 } 
 
 .small__element {
@@ -47,9 +66,19 @@
   text-transform: uppercase;
   font-weight: 400;
   line-height: 25px; 
-  inset-inline-start: 81%;
-  inset-block-start: 1.5%;
+  /*inset-inline-end: calc(var(--decorated-indent) + 39px); верный метод сказал наставник,но не работает)
+  inset-block-start: var(--decorated-indent);*/
+  top: 0;
+  right: 29px;
 }
+/*прежние способы задачи отступов. не нужно их брать: top: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
+  right: clamp(2.375rem, 1.7786rem + 2.5445vw, 3rem);*//*top: 0;
+  right: 29px;*/
+  /*top: 10px;
+  right: 38px;*/
+  /*inset-inline-start: 81%;
+  inset-block-start: 1.5%;*/
+
 
 .small__element::after {
   content: '';
@@ -98,6 +127,7 @@
 
 .header__theme-menu-button:hover { 
   outline: 1px solid var(--button-hover);
+  cursor: pointer;
 }
 
 .header__theme-menu-button_active {
@@ -112,9 +142,7 @@
 
 .header__theme-menu-button:focus-visible {
   outline: none;
-  padding: 0 12px;
-  height: 25px;
-  border: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--accent-color);
 } 
 
 .heading {
@@ -132,7 +160,9 @@
   line-height: 23.4px;
   max-block-size: 117px;
   margin-block-start: 26px;
+  height: min-content;
 }
+
 
 .title-decor {
   color: var(--subtitle-color);
@@ -178,18 +208,22 @@ a:hover {
   border-bottom: 1px solid var(--paragraph-color);
 }
 
+a:focus {
+  outline: 1px solid var(--paragraph-color);
+}
+
 a:focus-visible {
   outline: 1px solid var(--paragraph-color);
 }
 
 .main__page-block {
-  padding: var(--page-blok);
+  /*padding: var(--page-blok);*/
   margin-block-start: 50px;
   display: grid;
 }
 
 .information__page-block {
-  padding: var(--page-blok);
+  /*padding: var(--page-blok);*/
   margin-block-start: 50px;
   display: grid;
 }
@@ -204,7 +238,7 @@ a:focus-visible {
 
 .page__block-content {
   margin-block-start: 30px;
-  padding: var(--page-blok);
+  /*padding: var(--page-blok);*/
   display: grid;
   gap: 10px;
 }
@@ -221,10 +255,10 @@ a:focus-visible {
 }
 
 .footer {
-  padding: var(--main-blok-padding);
   inline-size: 100%;
   min-block-size: 100vh; 
   display: flex;
+  padding-top: 10px; /*уголок стоит НЕ перед паддингом,а в нем - исправить*/
   margin-block-start: 44px;
   position: relative;
 }
@@ -242,58 +276,89 @@ a:focus-visible {
 .decorated-zone-end::before {
   content: '';
   position: absolute;
-  border-block-start: 1px solid var(--accent-color);
-  border-inline-end: 1px solid var(--accent-color);
-  inset-inline-start: 91%;
   block-size: 25px;
   inline-size: 25px;
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+  inset-inline-end: var(--decorated-indent);
+  inset-block-start: var(--decorated-indent);
+  /*top: 0;
+  right: 0;*/
+  /*top: 10px;
+  right: 10px;*/
+  /*inset-inline-start: 91%;*/
+  
 }
 
 .decorated-zone-end::after { 
   content: '';
   position: absolute;
-  border-block-end: 1px solid var(--accent-color);
-  border-inline-start: 1px solid var(--accent-color);
-  inset-block-start: 94.8%;
   block-size: 25px;
   inline-size: 25px;
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
+  inset-inline-start: var(--decorated-indent);
+  inset-block-end: var(--decorated-indent);
+  /*left: 0;
+  bottom: 0;*/
+  /*left: 10px;
+  bottom: 10px;*/
+  /*inset-block-start: 94.8%;*/
+  
 }
 
 @media (width >= 768px) {
 
-  .header{
+  .header {
     grid-template-rows: repeat(3, 1fr);
     max-inline-size: 100dvw;
-    min-block-size: 100vh; 
-    padding: 20px;
+    min-block-size: 100vh;
+    --main-blok-padding: 0 0 20px 0;
+    padding: var(--main-blok-padding);
   }
 
-  .heading{
+  .heading {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     justify-self: start;
     align-self: center;
     margin-inline-start: -3%;
   }
 
-  .subtitle{
+  .subtitle {
     width: 50%;
     justify-self: end;
     margin-block-start: 7%;
   } 
 
   .decorated-zone::before {
-  inset-block-start: 2.1%;
-  inset-inline-start: 94%;
+    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
+   
+    /* top: 0;
+    right: 0;*/
+   /* top: 20px;
+    right: 20px;*/
+  /*inset-block-start: 2.1%;
+  inset-inline-start: 94%;*/
   }
   
   .decorated-zone::after {
-  inset-block-start: 95.5%;
-  inset-inline-start: 2.5%;
+  /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
+
+    /*left: 0;
+    right: 0;*/
+    /*left: 20px;
+    bottom: 20px;*/
+  /*inset-block-start: 95.5%;
+  inset-inline-start: 2.5%;*/
   } 
 
   .small__element {
-    inset-inline-start: 89.5%;
-    inset-block-start: 2%;
+    top: 0;
+    right: 30px;
+    /*top: 20px;
+    right: 48px;*/
+    /*inset-inline-start: 89.5%;
+    inset-block-start: 2%;*/
   }
 
   .header__theme-menu-list {
@@ -301,8 +366,8 @@ a:focus-visible {
   }
 
   .page-block {
-    --page-blok: 0 20px;
-    padding: var(--page-blok);
+    /*--page-blok: 0 20px;
+    padding: var(--page-blok);*/
     grid-template-columns: 1fr 65%;
   }
 
@@ -316,23 +381,19 @@ a:focus-visible {
 
   .section-title {
     margin-block-start: 20px;
-    min-inline-size: 236px;
+    max-inline-size: 236px;
   }
 
   .main__page-block {
-    --page-blok: 0 20px;
-    padding: var(--page-blok);
+    /*--page-blok: 0 20px;
+    padding: var(--page-blok);*/
     margin-block-start: 60px;
     gap: 0px;
   }
 
-  .section-title {
-    max-inline-size: 236px;
-  }
-
   .information__page-block {
-    --page-blok: 0 20px;
-    padding: var(--page-blok);
+    /*--page-blok: 0 20px;
+    padding: var(--page-blok);*/
     display: grid;
     grid-template-columns: 236px 1fr;
     margin-block-start: 60px;
@@ -340,8 +401,8 @@ a:focus-visible {
   }
 
   .page__block-content {
-    --page-blok: 0 20px;
-    padding: var(--page-blok);
+    /*--page-blok: 0 20px;
+    padding: var(--page-blok);*/
     margin-block-start: 60px;
   }
 
@@ -420,11 +481,13 @@ a:focus-visible {
   }
 
   .footer {
-    margin-block-start: 62px; 
+    margin-block-start: 61px; 
     min-block-size: 100vh; 
-    --main-blok-padding: 20px; 
-    padding: var(--main-blok-padding);
     display: grid;
+    justify-self: center;
+    padding-top: 20px; /*верхний уголок на паддинге, а не под ним*/
+    /*--main-blok-padding: 20px; 
+    padding: var(--main-blok-padding);*/
   }
   
   .title-end {
@@ -434,13 +497,21 @@ a:focus-visible {
   }
 
   .decorated-zone-end::before {
-    inset-inline-start: 94%;
-    inset-block-start: 2%;
+    top: 0;
+    right: 0;
+    /*top: 20px;
+    right: 20px;*/
+    /*inset-inline-start: 94%;
+    inset-block-start: 2%;*/
   }
 
   .decorated-zone-end::after {
-    margin-inline-start: 20px;
-    inset-block-start: 95.7%;
+    left: 0;
+    bottom: 0;
+    /*left: 20px;
+    bottom: 20px;*/
+    /*margin-inline-start: 20px;
+    inset-block-start: 95.7%;*/
   }
 } 
 
@@ -452,7 +523,10 @@ a:focus-visible {
     grid-template-rows: repeat(3, 1fr);
     max-inline-size: 100dvw;
     min-block-size: 100vh; 
-    --main-blok-padding: 20px;
+    --main-blok-padding: 0 0 20px 0;
+    padding: var(--main-blok-padding);
+    /*--main-blok-padding: 20px;
+    padding: var(--main-blok-padding);*/
   }
 
   .heading {
@@ -468,18 +542,34 @@ a:focus-visible {
   }
 
   .decorated-zone::before {
-    inset-inline-start: 95.6%;
-    inset-block-start: 2.5%;
+    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
+   
+    /*top: 0;
+    right: 0;*/
+    /*top: 20px;
+    right: 20px;*/
+  /*inset-block-start: 2.1%;
+  inset-inline-start: 94%;*/
   }
   
   .decorated-zone::after {
-    inset-block-start: 94%;
-    inset-inline-start: 2%;
+    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
+   
+    /*left: 0;
+    bottom: 0;*/
+    /*left: 20px;
+    bottom: 20px;*/
+  /*inset-block-start: 95.5%;
+  inset-inline-start: 2.5%;*/
   } 
 
   .small__element {
-    inset-block-start: 2.5%;
-    inset-inline-start: 92%;
+    top: 0;
+    right: 28px;
+    /*top: 20px;
+    right: 48px;*/
+    /*inset-inline-start: 89.5%;
+    inset-block-start: 2%;*/
   }
 
   .header__theme-menu-list {
@@ -490,8 +580,8 @@ a:focus-visible {
   } 
 
   .page-block {
-    --page-blok: 0 20px;
-    padding: var(--page-blok);
+    /*--page-blok: 0 20px;
+    padding: var(--page-blok);*/
     margin-block-start: 40px;
     grid-template-columns: 1fr 66%;
   }
@@ -506,23 +596,23 @@ a:focus-visible {
   }
 
   .main__page-block {
-    --page-blok: 0 20px;
-    padding: var(--page-blok);
+    /*--page-blok: 0 20px;
+    padding: var(--page-blok);*/
     margin-block-start: 60px;
     gap: 0px;
   }
 
   .information__page-block {
-    --page-blok: 0 20px;
-    padding: var(--page-blok);
+    /*--page-blok: 0 20px;
+    padding: var(--page-blok);*/
     display: grid;
     grid-template-columns: 1fr 66%;
     margin-block-start: 58px;
   }
 
   .page__block-content {
-    --page-blok: 0 20px;
-    padding: var(--page-blok);
+    /*--page-blok: 0 20px;
+    padding: var(--page-blok);*/
     margin-block-start: 60px;
   }
 
@@ -611,11 +701,10 @@ a:focus-visible {
     height: 100%;
   }
 
-  .footer {
-    max-inline-size: 1024px; 
+  .footer { 
     min-block-size: 100vh; 
-    --main-blok-padding: 20px; 
-    padding: var(--main-blok-padding);
+    /*--main-blok-padding: 20px; 
+    padding: var(--main-blok-padding);*/
   }
   
   .title-end {
@@ -627,16 +716,28 @@ a:focus-visible {
     margin: auto;
   }
 
-  .decorated-zone-end::after {
-    inset-block-start: 93.7%;
-  }
-}
-
-@media (max-width:1440px) and (min-width:1024px) {
-
   .decorated-zone-end::before {
-    inset-inline-start: calc(980px + (100vw - 1024px) * (980 - 1396) / (1024 -  1440));
+    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
+
+    /*top: 0;
+    right: 0;*/
+    /*top: 18px;
+    right: 20px;*/
+    /*inset-inline-start: 94%;
+    inset-block-start: 2%;*/
   }
+
+  .decorated-zone-end::after {
+    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
+
+    /*left: 0;
+    bottom: 0;*/
+    /*left: 20px;
+    bottom: 22px;*/
+    /*margin-inline-start: 20px;
+    inset-block-start: 95.7%;*/
+  }
+
 }
     
 

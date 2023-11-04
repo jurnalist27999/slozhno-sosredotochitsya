@@ -3,7 +3,7 @@
   Здесь окажутся стили, которые нужно переопределить принудительно,
   переключая тему
 */
- .page.theme-light {
+ .page.theme_light {
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
@@ -15,10 +15,91 @@
   --primary-font: 'IBM Plex Mono', Monospace; 
   --large-font-size: 116px;
   --small-font-size: 18px;
-  --main-blok-padding: 10px;
-  --page-blok: 0 10px;
+  --decorated-indent: 0;
+  --main-blok-padding: 0 0 10px 0;
+  /*--main-blok-padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
+    /*--main-blok-padding: 10px;*/
+    /*--page-blok: 0 10px;*/
   --button-hover: rgba(50, 49, 45, 0.40);
-  background: url(../images/cover-image-light.png);
+  background-image: url(../images/cover-image-light.png);
+  }
+
+  .theme_light .small__element {
+    display: none;
+  }
+ 
+  .theme_light .decorated-zone::before {
+    border-block-start: 1px solid var(--subtitle-color);
+    border-inline-end: 1px solid var(--subtitle-color);
+  }
+
+  .theme_light .decorated-zone::after {
+    border-block-end: 1px solid var(--subtitle-color);
+    border-inline-start: 1px solid var(--subtitle-color);
+  } 
+
+  .theme_light .title-decor {
+    color: var(--subtitle-color);
+  }
+
+  .theme_light .header__theme-menu-button {
+    color: var(--subtitle-color);
+  }
+
+  .theme_light .header__theme-menu-button:hover { 
+    outline: 1px solid var(--button-hover);
+  }
+    
+  .theme_light .header__theme-menu-button_active {
+    outline: 1px solid var(--subtitle-color);
+  }
+    
+  .theme_light .header__theme-menu-button:focus {
+    border-block-end: 1px solid var(--subtitle-color);
+  }
+
+  .theme_light .header__theme-menu-button:focus-visible {
+    border-block-end: 1px solid var(--subtitle-color);
+  }
+
+  .theme_light .section-title {
+    color: var(--subtitle-color);
+  }
+
+  .theme_light .main-text {
+     color: var(--subtitle-color);
+  }
+
+  .theme_light a:hover {
+    border-bottom: 1px solid var(--subtitle-color);
+  }
+
+  .theme_light a:focus {
+    outline: 1px solid var(--subtitle-color);
+  }
+
+  .theme_light a:focus-visible {
+    outline: 1px solid var(--subtitle-color);
+  }
+
+  .theme_light .decorated-zone-end::before {     
+    border-block-start: 1px solid var(--subtitle-color);
+    border-inline-end: 1px solid var(--subtitle-color);      
+  }
+    
+  .theme_light .decorated-zone-end::after { 
+    border-block-end: 1px solid var(--subtitle-color);
+    border-inline-start: 1px solid var(--subtitle-color);
+  }
+
+  @media (width >= 1024px) {
+    .theme_light .heading {
+      text-shadow: 4px 4px 0 var(--shadow-color);
+    }
+      
+    .theme_light .title-end {
+      text-shadow: 2px 2px 0 var(--shadow-color);
+    }
   }
   
   @media (prefers-color-scheme: light) {
@@ -30,10 +111,12 @@
       --primary-font: 'IBM Plex Mono', Monospace; 
       --large-font-size: 116px;
       --small-font-size: 18px;
-      --main-blok-padding: 10px;
-      --page-blok: 0 10px;
+      --decorated-indent: 0;
+      --main-blok-padding: 0 0 10px 0;
+      /*--main-blok-padding: 10px;*/
+      /*--main-blok-padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
+      /*--page-blok: 0 10px;*/
       --button-hover: rgba(50, 49, 45, 0.40);
-      background: url(../images/cover-image-light.png);
     }
 
     .small__element {
@@ -41,10 +124,7 @@
     }
 
     .page {
-      background: url(../images/cover-image-light.png);
-      background-position: center;
-      background-size: cover;
-      background-attachment: fixed; 
+      background-image: url(../images/cover-image-light.png);
     }
     
     .decorated-zone::before {
@@ -78,7 +158,7 @@
     }
 
     .header__theme-menu-button:focus-visible {
-      border: 1px solid var(--subtitle-color);
+      border-block-end: 1px solid var(--subtitle-color);
     }
 
     .section-title {
@@ -91,6 +171,10 @@
 
     a:hover {
       border-bottom: 1px solid var(--subtitle-color);
+    }
+
+    a:focus {
+      outline: 1px solid var(--subtitle-color);
     }
     
     a:focus-visible {
