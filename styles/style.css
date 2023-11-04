@@ -2,7 +2,8 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  padding: clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem); /*отступы адаптировала от 10рх для 375 и до 20рх для 768*/
+  /*padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/ /*отступы адаптировала от 10рх для 375 и до 20рх для 768*/
+  padding: clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem);
   background-image: url(../images/cover-image-dark.png);
   background-position: center;
   background-attachment: fixed;
@@ -11,11 +12,17 @@
 
 .header {
   inline-size: 100%;
-  min-block-size: 100vh; 
+ /* min-block-size: 100vh; */
   display: grid;
   position: relative;
   font-family: var(--primary-font);
-  padding: var(--main-blok-padding);
+ /* padding: var(--main-blok-padding);*/
+  /*block-size: calc(100vh - (2 * clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)));*/
+  block-size: calc(100vh - (2 * clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem)));
+  min-block-size: clamp(40.5rem, 20.4618rem + 85.4962vw, 61.5rem);
+  margin-block-end: clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem);
+  
+
   /*padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
 }
 
@@ -66,10 +73,11 @@
   text-transform: uppercase;
   font-weight: 400;
   line-height: 25px; 
-  /*inset-inline-end: calc(var(--decorated-indent) + 39px); верный метод сказал наставник,но не работает)
-  inset-block-start: var(--decorated-indent);*/
   top: 0;
   right: 29px;
+  /*inset-inline-end: calc(var(--decorated-indent) + 39px); - наставник посоветовал этот метод)
+  inset-block-start: var(--decorated-indent);*/
+  
 }
 /*прежние способы задачи отступов. не нужно их брать: top: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
   right: clamp(2.375rem, 1.7786rem + 2.5445vw, 3rem);*//*top: 0;
@@ -258,9 +266,12 @@ a:focus-visible {
   inline-size: 100%;
   min-block-size: 100vh; 
   display: flex;
-  padding-top: 10px; /*уголок стоит НЕ перед паддингом,а в нем - исправить*/
+  /*padding-top: 10px; уголок стоит НЕ перед паддингом,а в нем - исправить*/
   margin-block-start: 44px;
   position: relative;
+  block-size: calc(100vh - (2 * clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)));
+  min-block-size: clamp(40.5rem, 20.4618rem + 85.4962vw, 61.5rem);
+  margin-block-start: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
 }
 
 .title-end {
@@ -312,9 +323,13 @@ a:focus-visible {
   .header {
     grid-template-rows: repeat(3, 1fr);
     max-inline-size: 100dvw;
+    /*block-size: calc(100vh - (2 * clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)));
+    min-block-size: clamp(40.5rem, 20.4618rem + 85.4962vw, 61.5rem);
+    margin-block-end: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
+    
     min-block-size: 100vh;
-    --main-blok-padding: 0 0 20px 0;
-    padding: var(--main-blok-padding);
+   /* --main-blok-padding: 0 0 20px 0;
+    padding: var(--main-blok-padding);*/
   }
 
   .heading {
@@ -485,7 +500,7 @@ a:focus-visible {
     min-block-size: 100vh; 
     display: grid;
     justify-self: center;
-    padding-top: 20px; /*верхний уголок на паддинге, а не под ним*/
+    /*padding-top: 20px; верхний уголок на паддинге, а не под ним*/
     /*--main-blok-padding: 20px; 
     padding: var(--main-blok-padding);*/
   }
@@ -522,9 +537,10 @@ a:focus-visible {
   .header {
     grid-template-rows: repeat(3, 1fr);
     max-inline-size: 100dvw;
-    min-block-size: 100vh; 
-    --main-blok-padding: 0 0 20px 0;
-    padding: var(--main-blok-padding);
+    min-block-size: 100vh;
+    
+    /*--main-blok-padding: 0 0 20px 0;
+    padding: var(--main-blok-padding);*/
     /*--main-blok-padding: 20px;
     padding: var(--main-blok-padding);*/
   }
