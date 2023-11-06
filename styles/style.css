@@ -2,8 +2,7 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  /*padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/ /*отступы адаптировала от 10рх для 375 и до 20рх для 768*/
-  padding: clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem);
+  padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem); /*отступы адаптировала*/
   background-image: url(../images/cover-image-dark.png);
   background-position: center;
   background-attachment: fixed;
@@ -12,20 +11,13 @@
 
 .header {
   inline-size: 100%;
- /* min-block-size: 100vh; */
   display: grid;
   position: relative;
   font-family: var(--primary-font);
- /* padding: var(--main-blok-padding);*/
-  /*block-size: calc(100vh - (2 * clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)));*/
-  block-size: calc(100vh - (2 * clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem)));
-  min-block-size: clamp(40.5rem, 20.4618rem + 85.4962vw, 61.5rem);
-  margin-block-end: clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem);
-  
-
-  /*padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
+  block-size: calc(100vh - (2 * clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)));
+  margin-block-end: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
+  min-block-size: 650px;
 }
-
 
 .decorated-zone::before {
   content: '';
@@ -36,14 +28,6 @@
   inset-block-start: var(--decorated-indent);
   block-size: 25px;
   inline-size: 25px;
-/*top: 0;
-  right: 0;*/
-  /*top: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
-  right: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
-  /*top: 10px;
-  right: 10px;*/
-  /*inset-inline-start: 91%; 
-  inset-block-start: 1.5%;*/
 }
 
 .decorated-zone::after {
@@ -55,14 +39,6 @@
   inline-size: 25px;
   inset-inline-start: var(--decorated-indent);
   inset-block-end: var(--decorated-indent);
-  /*left: 0;
-  bottom: 0px;*/
-  /*left: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
-  bottom: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
-  /*left: 10px;
-  bottom: 10px;*/
-  /*inset-block-start: 94.8%;
-  inset-inline-start: 3%;*/
 } 
 
 .small__element {
@@ -75,18 +51,7 @@
   line-height: 25px; 
   top: 0;
   right: 29px;
-  /*inset-inline-end: calc(var(--decorated-indent) + 39px); - наставник посоветовал этот метод)
-  inset-block-start: var(--decorated-indent);*/
-  
 }
-/*прежние способы задачи отступов. не нужно их брать: top: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
-  right: clamp(2.375rem, 1.7786rem + 2.5445vw, 3rem);*//*top: 0;
-  right: 29px;*/
-  /*top: 10px;
-  right: 38px;*/
-  /*inset-inline-start: 81%;
-  inset-block-start: 1.5%;*/
-
 
 .small__element::after {
   content: '';
@@ -101,7 +66,7 @@
 }
 
 .header__theme-menu {
-  display: grid;
+  display: grid; 
 }
 
 .header__theme-menu-list {
@@ -109,7 +74,7 @@
   justify-self: end;
   align-self: end;
   display: grid;
-  gap: 10px;
+  gap: 10px; 
   margin-block-end: 40px;
 }
 
@@ -159,7 +124,7 @@
   text-shadow: 4px 4px 0 var(--accent-color);
   line-height: 82.5%;
   font-weight: 700;
-  align-self: center;
+  align-self: center; 
 }
 
 .subtitle {
@@ -181,7 +146,7 @@
   padding: var(--page-blok);
   display: grid;
   line-height: 23.4px;
-  margin-block-start: 40px;
+  margin-block-start: 50px;
 }
 
 .section-title {
@@ -225,13 +190,11 @@ a:focus-visible {
 }
 
 .main__page-block {
-  /*padding: var(--page-blok);*/
   margin-block-start: 50px;
   display: grid;
 }
 
 .information__page-block {
-  /*padding: var(--page-blok);*/
   margin-block-start: 50px;
   display: grid;
 }
@@ -246,7 +209,7 @@ a:focus-visible {
 
 .page__block-content {
   margin-block-start: 30px;
-  /*padding: var(--page-blok);*/
+  margin-block-end: 50px;
   display: grid;
   gap: 10px;
 }
@@ -264,13 +227,11 @@ a:focus-visible {
 
 .footer {
   inline-size: 100%;
-  min-block-size: 100vh; 
+  min-block-size: 650px;
+  justify-content: center;
   display: flex;
-  /*padding-top: 10px; уголок стоит НЕ перед паддингом,а в нем - исправить*/
-  margin-block-start: 44px;
   position: relative;
   block-size: calc(100vh - (2 * clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)));
-  min-block-size: clamp(40.5rem, 20.4618rem + 85.4962vw, 61.5rem);
   margin-block-start: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
 }
 
@@ -284,52 +245,10 @@ a:focus-visible {
   align-self: center;
 }
 
-.decorated-zone-end::before {
-  content: '';
-  position: absolute;
-  block-size: 25px;
-  inline-size: 25px;
-  border-block-start: 1px solid var(--accent-color);
-  border-inline-end: 1px solid var(--accent-color);
-  inset-inline-end: var(--decorated-indent);
-  inset-block-start: var(--decorated-indent);
-  /*top: 0;
-  right: 0;*/
-  /*top: 10px;
-  right: 10px;*/
-  /*inset-inline-start: 91%;*/
-  
-}
-
-.decorated-zone-end::after { 
-  content: '';
-  position: absolute;
-  block-size: 25px;
-  inline-size: 25px;
-  border-block-end: 1px solid var(--accent-color);
-  border-inline-start: 1px solid var(--accent-color);
-  inset-inline-start: var(--decorated-indent);
-  inset-block-end: var(--decorated-indent);
-  /*left: 0;
-  bottom: 0;*/
-  /*left: 10px;
-  bottom: 10px;*/
-  /*inset-block-start: 94.8%;*/
-  
-}
-
 @media (width >= 768px) {
 
   .header {
     grid-template-rows: repeat(3, 1fr);
-    max-inline-size: 100dvw;
-    /*block-size: calc(100vh - (2 * clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)));
-    min-block-size: clamp(40.5rem, 20.4618rem + 85.4962vw, 61.5rem);
-    margin-block-end: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
-    
-    min-block-size: 100vh;
-   /* --main-blok-padding: 0 0 20px 0;
-    padding: var(--main-blok-padding);*/
   }
 
   .heading {
@@ -337,6 +256,7 @@ a:focus-visible {
     justify-self: start;
     align-self: center;
     margin-inline-start: -3%;
+    height: min-content;
   }
 
   .subtitle {
@@ -345,45 +265,13 @@ a:focus-visible {
     margin-block-start: 7%;
   } 
 
-  .decorated-zone::before {
-    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
-   
-    /* top: 0;
-    right: 0;*/
-   /* top: 20px;
-    right: 20px;*/
-  /*inset-block-start: 2.1%;
-  inset-inline-start: 94%;*/
-  }
-  
-  .decorated-zone::after {
-  /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
-
-    /*left: 0;
-    right: 0;*/
-    /*left: 20px;
-    bottom: 20px;*/
-  /*inset-block-start: 95.5%;
-  inset-inline-start: 2.5%;*/
-  } 
-
-  .small__element {
-    top: 0;
-    right: 30px;
-    /*top: 20px;
-    right: 48px;*/
-    /*inset-inline-start: 89.5%;
-    inset-block-start: 2%;*/
-  }
-
   .header__theme-menu-list {
     margin-block-end: 8%;
   }
 
   .page-block {
-    /*--page-blok: 0 20px;
-    padding: var(--page-blok);*/
     grid-template-columns: 1fr 65%;
+    margin-block-start: 60px;
   }
 
   .page-block, .grid-text {
@@ -400,15 +288,11 @@ a:focus-visible {
   }
 
   .main__page-block {
-    /*--page-blok: 0 20px;
-    padding: var(--page-blok);*/
     margin-block-start: 60px;
     gap: 0px;
   }
 
   .information__page-block {
-    /*--page-blok: 0 20px;
-    padding: var(--page-blok);*/
     display: grid;
     grid-template-columns: 236px 1fr;
     margin-block-start: 60px;
@@ -416,9 +300,8 @@ a:focus-visible {
   }
 
   .page__block-content {
-    /*--page-blok: 0 20px;
-    padding: var(--page-blok);*/
     margin-block-start: 60px;
+    margin-block-end: 80px;
   }
 
   .note-text-text {
@@ -496,13 +379,8 @@ a:focus-visible {
   }
 
   .footer {
-    margin-block-start: 61px; 
-    min-block-size: 100vh; 
     display: grid;
     justify-self: center;
-    /*padding-top: 20px; верхний уголок на паддинге, а не под ним*/
-    /*--main-blok-padding: 20px; 
-    padding: var(--main-blok-padding);*/
   }
   
   .title-end {
@@ -511,38 +389,13 @@ a:focus-visible {
     margin: auto;
   }
 
-  .decorated-zone-end::before {
-    top: 0;
-    right: 0;
-    /*top: 20px;
-    right: 20px;*/
-    /*inset-inline-start: 94%;
-    inset-block-start: 2%;*/
-  }
-
-  .decorated-zone-end::after {
-    left: 0;
-    bottom: 0;
-    /*left: 20px;
-    bottom: 20px;*/
-    /*margin-inline-start: 20px;
-    inset-block-start: 95.7%;*/
-  }
 } 
-
-  
 
 @media (width >= 1024px) {
 
   .header {
     grid-template-rows: repeat(3, 1fr);
     max-inline-size: 100dvw;
-    min-block-size: 100vh;
-    
-    /*--main-blok-padding: 0 0 20px 0;
-    padding: var(--main-blok-padding);*/
-    /*--main-blok-padding: 20px;
-    padding: var(--main-blok-padding);*/
   }
 
   .heading {
@@ -557,37 +410,6 @@ a:focus-visible {
     margin-block-start: 57px;
   }
 
-  .decorated-zone::before {
-    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
-   
-    /*top: 0;
-    right: 0;*/
-    /*top: 20px;
-    right: 20px;*/
-  /*inset-block-start: 2.1%;
-  inset-inline-start: 94%;*/
-  }
-  
-  .decorated-zone::after {
-    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
-   
-    /*left: 0;
-    bottom: 0;*/
-    /*left: 20px;
-    bottom: 20px;*/
-  /*inset-block-start: 95.5%;
-  inset-inline-start: 2.5%;*/
-  } 
-
-  .small__element {
-    top: 0;
-    right: 28px;
-    /*top: 20px;
-    right: 48px;*/
-    /*inset-inline-start: 89.5%;
-    inset-block-start: 2%;*/
-  }
-
   .header__theme-menu-list {
     display: flex;
     align-self: start;
@@ -596,9 +418,7 @@ a:focus-visible {
   } 
 
   .page-block {
-    /*--page-blok: 0 20px;
-    padding: var(--page-blok);*/
-    margin-block-start: 40px;
+    margin-block-start: 60px;
     grid-template-columns: 1fr 66%;
   }
 
@@ -607,29 +427,19 @@ a:focus-visible {
   }
 
   .section-title {
-    margin-block-start: 20px;
+    margin-block-start: 19px;
     max-inline-size: 315px;
   }
 
   .main__page-block {
-    /*--page-blok: 0 20px;
-    padding: var(--page-blok);*/
     margin-block-start: 60px;
     gap: 0px;
   }
 
   .information__page-block {
-    /*--page-blok: 0 20px;
-    padding: var(--page-blok);*/
     display: grid;
     grid-template-columns: 1fr 66%;
     margin-block-start: 58px;
-  }
-
-  .page__block-content {
-    /*--page-blok: 0 20px;
-    padding: var(--page-blok);*/
-    margin-block-start: 60px;
   }
 
   .note-text-text {
@@ -716,12 +526,6 @@ a:focus-visible {
     width: 100%;
     height: 100%;
   }
-
-  .footer { 
-    min-block-size: 100vh; 
-    /*--main-blok-padding: 20px; 
-    padding: var(--main-blok-padding);*/
-  }
   
   .title-end {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
@@ -730,28 +534,6 @@ a:focus-visible {
     flex-direction: column;
     align-items: center;
     margin: auto;
-  }
-
-  .decorated-zone-end::before {
-    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
-
-    /*top: 0;
-    right: 0;*/
-    /*top: 18px;
-    right: 20px;*/
-    /*inset-inline-start: 94%;
-    inset-block-start: 2%;*/
-  }
-
-  .decorated-zone-end::after {
-    /*если я выше в этом элементе указала переменную с 0. То тут ведь уже не надо прописывать?*/
-
-    /*left: 0;
-    bottom: 0;*/
-    /*left: 20px;
-    bottom: 22px;*/
-    /*margin-inline-start: 20px;
-    inset-block-start: 95.7%;*/
   }
 
 }

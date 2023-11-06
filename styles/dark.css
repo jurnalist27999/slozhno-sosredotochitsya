@@ -16,10 +16,6 @@
   --small-font-size: 18px;
   --accent-color: #ff0070;
   --decorated-indent: 0;
-  /*--main-blok-padding: 0 0 10px 0;*/
-  /*--main-blok-padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);*/
-   /* --main-blok-padding: 10px;*/
-    /*--page-blok: 0 10px;*/
   --button-hover: rgba(255, 0, 112, 0.4);
   background-image: url(../images/cover-image-dark.png);
 }
@@ -84,14 +80,4 @@ a:focus {
 
 a:focus-visible {
   outline: 1px solid var(--paragraph-color);
-}
-
-.theme_dark .decorated-zone-end::before {
-  border-block-start: 1px solid var(--accent-color);
-  border-inline-end: 1px solid var(--accent-color);
-}
-
-.theme_dark .decorated-zone-end::after {
-  border-block-end: 1px solid var(--accent-color);
-  border-inline-start: 1px solid var(--accent-color);
 }
